@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #dadada;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "image sidebar" "slider sidebar";
+  width: 100vw;
+  height: 100vh;
+}
+.main-image {
+  grid-area: image;
+  background-image: url("./Kakashi.jpg");
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.slider-container {
+  grid-area: slider;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+.slider {
+  width: 100%;
+}
+.sidebar {
+  grid-area: sidebar;
+  border-left: 1px solid hsl(265, 100%, 46%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sidebar-button {
+  padding: 1rem;
+  border: none;
+  outline: none;
+  position: relative;
+  transition: background-color 250ms;
+  background-color: hsl(265, 100%, 86%);
+}
+
+.sidebar-button:hover,
+.sidebar-button:focus {
+  background-color: hsl(265, 100%, 76%);
+}
+
+.sidebar-button.active {
+  background-color: hsl(265, 100%, 70%);
+}
+
+.sidebar-button::after {
+  content: "";
+  height: px;
+  width: 80%;
+  position: absolute;
+  background-color: hsl(265, 100%, 60%);
+  left: 10%;
+  bottom: 0;
+}
+.sidebar-button:last-child::after {
+  display: none;
+}
